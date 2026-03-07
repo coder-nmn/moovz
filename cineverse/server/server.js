@@ -18,7 +18,20 @@ const app = express();
 
 // --- Security Middleware ---
 // 1. Set security HTTP headers
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      connectSrc: ["'self'", "https://api.themoviedb.org", "https://api.groq.com"],
+      imgSrc: ["'self'", "data:", "https://image.tmdb.org", "https://img.youtube.com"],
+      frameSrc: ["'self'", "https://www.youtube.com"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+    },
+  },
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 
 // 2. Rate limiting (max 100 requests per 15 mins per IP)
 const limiter = rateLimit({
