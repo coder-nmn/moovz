@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState, useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './app/store';
@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import ChatBot from './components/ChatBot/ChatBot';
 import ProtectedRoute from './components/ProtectedRoute';
 import { Loader } from './components/Loader/Loader';
+import SplashScreen from './components/SplashScreen/SplashScreen';
 import './App.css';
 
 // Lazy-loaded pages for code splitting
@@ -27,6 +28,20 @@ const Login = lazy(() => LoginModule.then(m => ({ default: m.default })));
 const Signup = lazy(() => LoginModule.then(m => ({ default: m.Signup })));
 
 function App() {
+  const [showSplash, setShowSplash] = useState(() => {
+    // Show splash only once per session
+    return !sessionStorage.getItem('moovz_visited');
+  });
+
+  const handleSplashComplete = useCallback(() => {
+    sessionStorage.setItem('moovz_visited', 'true');
+    setShowSplash(false);
+  }, []);
+
+  if (showSplash) {
+    return <SplashScreen onComplete={handleSplashComplete} />;
+  }
+
   return (
     <Provider store={store}>
       <BrowserRouter>
