@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+// Determine the base URL dynamically
+// If VITE_BACKEND_URL is localhost, but we are running on a real domain, use the current domain instead
+let baseURL = import.meta.env.VITE_BACKEND_URL;
+if (import.meta.env.PROD && baseURL.includes('localhost')) {
+  baseURL = `${window.location.origin}/api`;
+}
+
 const backendApi = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
+  baseURL,
 });
 
 // Attach JWT token to every request
