@@ -1,0 +1,344 @@
+.details-page {
+  padding-bottom: 60px;
+}
+
+/* Bounded hero — does NOT bleed into the rest of the page */
+.details-backdrop {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center top;
+  overflow: hidden;
+}
+
+/* Always dark overlay — cinematic, Netflix style */
+.backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to right, rgba(5, 5, 10, 0.95) 0%, rgba(5, 5, 10, 0.7) 50%, rgba(5, 5, 10, 0.2) 100%),
+    linear-gradient(to bottom, rgba(5, 5, 10, 0.4) 0%, rgba(5, 5, 10, 0) 40%, rgba(5, 5, 10, 0.98) 100%);
+}
+
+/* Content sits inside the backdrop hero */
+.details-hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--navbar-height) + 20px) 0 40px;
+}
+
+.details-content {
+  padding-top: 32px;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+/* Hero content absolutely positioned inside the bounded hero */
+.details-hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 40px;
+  padding-top: calc(var(--navbar-height) + 20px);
+}
+
+.details-content {
+  padding-top: 32px;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.details-below-hero {
+  margin-bottom: 40px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.details-poster {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.details-poster img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Title, tagline, meta — always white: they sit inside the dark hero overlay */
+.details-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.details-tagline {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.details-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.meta-item.rating {
+  color: var(--accent-yellow);
+  font-weight: 600;
+}
+
+.details-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Genre tags inside dark hero — glass style always legible */
+.genre-tag {
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.details-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.details-actions .favorited {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.details-overview {
+  margin-bottom: 24px;
+}
+
+.details-overview h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.details-overview p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.watch-providers {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.watch-providers h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.provider-list {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.provider-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 60px;
+}
+
+.provider-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.provider-item {
+  width: 45px;
+  height: 45px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.provider-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.provider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-providers {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.provider-notice {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 10px;
+}
+
+.details-extra {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.extra-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.extra-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[data-theme='light'] .extra-label {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* watch-providers is below the hero on solid bg — use theme-aware styles */
+[data-theme='light'] .watch-providers {
+  background: var(--bg-secondary);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-sm);
+}
+
+/* overview + extra-label below hero are on solid bg — theme aware */
+[data-theme='light'] .details-overview p {
+  color: var(--text-secondary);
+}
+
+[data-theme='light'] .extra-label {
+  color: var(--text-secondary);
+}
+
+.details-section {
+  margin-top: 60px;
+}
+
+/* Cast Scroll */
+.cast-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+.cast-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.cast-card {
+  flex: 0 0 130px;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.cast-card:hover {
+  transform: translateY(-4px);
+}
+
+.cast-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+}
+
+.cast-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cast-character {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme='light'] .cast-name {
+  color: var(--text-primary);
+}
+
+[data-theme='light'] .cast-character {
+  color: var(--text-secondary);
+}
+
+[data-theme='light'] .cast-card img {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .details-poster {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  .details-title {
+    font-size: 1.8rem;
+  }
+}

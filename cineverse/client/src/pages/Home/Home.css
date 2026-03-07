@@ -1,0 +1,177 @@
+.home-page {
+  padding-bottom: 40px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 80px;
+  transition: background-image 1s ease;
+}
+
+/* Always dark — Netflix/streaming style. Never changes in light mode. */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to right, rgba(5, 5, 10, 0.95) 0%, rgba(5, 5, 10, 0.75) 40%, rgba(5, 5, 10, 0.1) 100%),
+    linear-gradient(to top, rgba(5, 5, 10, 0.98) 0%, rgba(5, 5, 10, 0.7) 20%, rgba(5, 5, 10, 0) 55%, rgba(5, 5, 10, 0.5) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+}
+
+/* Hero badge — always rendered on a dark bg, force light text */
+.hero-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+/* Hero text — always white since overlay is always dark */
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-yellow);
+  font-weight: 600;
+}
+
+.hero-overview {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Dot indicators — always white/red on dark bg */
+.hero-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--accent-primary);
+  width: 30px;
+  border-radius: 5px;
+}
+
+
+/* Sections */
+.section {
+  margin-top: 60px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.see-all {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: gap var(--transition-fast);
+}
+
+.see-all:hover {
+  gap: 8px;
+}
+
+/* Horizontal Scroll */
+.movie-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.movie-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.movie-scroll::-webkit-scrollbar-thumb {
+  background: var(--bg-card-hover);
+  border-radius: 2px;
+}
+
+.movie-scroll > * {
+  flex: 0 0 180px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    padding-bottom: 40px;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-overview {
+    font-size: 0.9rem;
+  }
+  .section {
+    margin-top: 40px;
+  }
+  .movie-scroll > * {
+    flex: 0 0 150px;
+  }
+}

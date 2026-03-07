@@ -1,0 +1,54 @@
+.person-card {
+  text-align: center;
+  transition: transform var(--transition-normal);
+}
+
+.person-card:hover {
+  transform: translateY(-6px);
+}
+
+.person-img-wrapper {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.person-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.person-card:hover .person-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.person-card-name {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.person-card-dept {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .person-card-name {
+  color: var(--text-primary);
+}
+
+[data-theme='light'] .person-card-dept {
+  color: var(--text-secondary);
+}
+
+[data-theme='light'] .person-img-wrapper {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}

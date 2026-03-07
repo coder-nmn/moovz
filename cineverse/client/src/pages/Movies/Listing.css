@@ -1,0 +1,46 @@
+.listing-page {
+  padding-bottom: 60px;
+}
+
+.genre-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.genre-pill {
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.genre-pill:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.genre-pill.active {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: white;
+}
+
+[data-theme='light'] .genre-pill {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme='light'] .genre-pill:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: var(--bg-card);
+}

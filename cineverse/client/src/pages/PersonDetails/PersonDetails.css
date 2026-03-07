@@ -1,0 +1,139 @@
+.person-details-page {
+  padding-bottom: 60px;
+  overflow-x: hidden;
+}
+
+.person-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.person-main {
+  min-width: 0; /* Critical: prevents grid child from overflowing its column */
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.person-photo {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.person-basic-info {
+  margin-top: 24px;
+}
+
+.person-basic-info h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.info-item {
+  margin-bottom: 16px;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.person-name {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.person-bio h3, .person-known-for h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.person-bio p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 0.95rem;
+  white-space: pre-line;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.btn-read-more {
+  background: none;
+  border: none;
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-read-more:hover {
+  opacity: 0.75;
+}
+
+.person-known-for {
+  margin-top: 40px;
+}
+
+.known-for-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+/* Known For cards — all exactly the same size */
+.known-for-card {
+  flex: 0 0 130px;
+  width: 130px;
+  transition: transform var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.known-for-card:hover {
+  transform: translateY(-4px);
+}
+
+.known-for-card img {
+  width: 130px;
+  height: 195px;   /* fixed 2:3 ratio */
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.known-for-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .person-grid {
+    grid-template-columns: 1fr;
+  }
+  .person-photo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .person-name {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
