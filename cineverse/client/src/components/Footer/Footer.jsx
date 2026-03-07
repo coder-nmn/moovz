@@ -15,7 +15,7 @@ export default function Footer() {
           <a href="https://github.com" target="_blank" rel="noreferrer"><FiGithub /> GitHub</a>
         </div>
         <div className="footer-bottom">
-          <p>Made with <FiHeart className="heart-icon" /> by Moovz Team &copy; {new Date().getFullYear()}</p>
+          <p>Made with <FiHeart className="heart-icon" /> by naman gupta &copy; {new Date().getFullYear()}</p>
           <p className="footer-disclaimer">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
         </div>
       </div>
