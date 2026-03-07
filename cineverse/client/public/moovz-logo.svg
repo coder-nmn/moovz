@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E50000"/>
+      <stop offset="100%" style="stop-color:#FF6B00"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="80" fill="#0A0A0F"/>
+  <!-- M letter -->
+  <path d="M100 400V160l80 120 80-120v240h-40V240l-40 60-40-60v160H100z" fill="url(#g)"/>
+  <!-- Play triangle -->
+  <path d="M300 200v112l97-56z" fill="url(#g)"/>
+  <!-- Clapperboard top -->
+  <path d="M270 120h160l20-40H290z" fill="url(#g)"/>
+  <rect x="290" y="85" width="20" height="40" rx="2" fill="#0A0A0F" transform="rotate(-8 300 105)"/>
+  <rect x="330" y="85" width="20" height="40" rx="2" fill="#0A0A0F" transform="rotate(-8 340 105)"/>
+  <rect x="370" y="85" width="20" height="40" rx="2" fill="#0A0A0F" transform="rotate(-8 380 105)"/>
+  <rect x="410" y="85" width="20" height="40" rx="2" fill="#0A0A0F" transform="rotate(-8 420 105)"/>
+</svg>
