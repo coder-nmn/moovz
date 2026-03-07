@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMessageCircle, FiX, FiSend, FiTrash2 } from 'react-icons/fi';
+import backendApi from '../../api/backend';
 import './ChatBot.css';
 
 const STARTER_MESSAGES = [
@@ -8,8 +9,6 @@ const STARTER_MESSAGES = [
   '⭐ What are trending movies?',
   '🎭 Tell me about an actor',
 ];
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api';
 
 // Parse [Text](/path) markdown links into clickable React Router Links
 function parseMessageContent(text) {
@@ -78,14 +77,8 @@ export default function ChatBot() {
     setIsTyping(true);
 
     try {
-      const res = await fetch(`${BACKEND_URL}/chat`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: updatedMessages }),
-      });
-
-      const data = await res.json();
-      const reply = data.reply || data.error || "Sorry, I couldn't process that.";
+      const res = await backendApi.post('/chat', { messages: updatedMessages });
+      const reply = res.data.reply || res.data.error || "Sorry, I couldn't process that.";
 
       setMessages((prev) => [...prev, { role: 'assistant', content: reply }]);
     } catch (err) {
