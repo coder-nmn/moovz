@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowLeft, FiCheck } from 'react-icons/fi';
 import '../Auth/Auth.css';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api';
+import backendApi from '../../api/backend';
 
 // Forgot Password Page — enter email to get reset link
 export default function ForgotPassword() {
@@ -19,20 +19,14 @@ export default function ForgotPassword() {
     setMessage('');
 
     try {
-      const res = await fetch(`${BACKEND_URL}/auth/forgot-password`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.message || 'Something went wrong');
+      const res = await backendApi.post('/auth/forgot-password', { email });
+      setMessage(res.data.message);
+    } catch (err) {
+      if (err.response) {
+        setError(err.response.data.message || 'Something went wrong');
       } else {
-        setMessage(data.message);
+        setError('Could not connect to the server');
       }
-    } catch {
-      setError('Could not connect to the server');
     } finally {
       setIsLoading(false);
     }
@@ -107,22 +101,17 @@ export function ResetPassword() {
     setIsLoading(true);
 
     try {
-      const res = await fetch(`${BACKEND_URL}/auth/reset-password/${token}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.message || 'Reset failed');
+      const res = await backendApi.post(`/auth/reset-password/${token}`, { password });
+      
+      setMessage(res.data.message || 'Password reset successful!');
+      // Auto-redirect to login after 2 seconds
+      setTimeout(() => navigate('/login'), 2000);
+    } catch (err) {
+      if (err.response) {
+        setError(err.response.data.message || 'Reset failed');
       } else {
-        setMessage(data.message || 'Password reset successful!');
-        // Auto-redirect to login after 2 seconds
-        setTimeout(() => navigate('/login'), 2000);
+        setError('Could not connect to the server');
       }
-    } catch {
-      setError('Could not connect to the server');
     } finally {
       setIsLoading(false);
     }
