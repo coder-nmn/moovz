@@ -53,6 +53,7 @@ export default function Login() {
               {isLoading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
+          <Link to="/forgot-password" className="forgot-password-link">Forgot Password?</Link>
           <p className="auth-footer">
             Don't have an account? <Link to="/signup">Sign Up</Link>
           </p>

@@ -1,0 +1,116 @@
+.not-found-page {
+  min-height: calc(100vh - 140px); /* minus navbar and footer usually */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.not-found-content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  background: var(--bg-secondary);
+  padding: 4rem 3rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  letter-spacing: -2px;
+}
+
+.not-found-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.error-message {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+/* Background aesthetic */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.15;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+.glow-orb.top-left {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-primary);
+  top: -100px;
+  left: -100px;
+}
+
+.glow-orb.bottom-right {
+  width: 500px;
+  height: 500px;
+  background: var(--accent-secondary);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(50px) scale(1.1); }
+}
+
+@media (max-width: 480px) {
+  .error-code { font-size: 6rem; }
+  .not-found-content h1 { font-size: 2rem; }
+  .not-found-content { padding: 3rem 1.5rem; }
+  .action-buttons { flex-direction: column; width: 100%; }
+  .action-buttons .btn { width: 100%; justify-content: center; }
+}

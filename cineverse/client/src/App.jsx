@@ -27,6 +27,14 @@ const LoginModule = import('./pages/Auth/Auth');
 const Login = lazy(() => LoginModule.then(m => ({ default: m.default })));
 const Signup = lazy(() => LoginModule.then(m => ({ default: m.Signup })));
 
+// Forgot/Reset password pages
+const ForgotPasswordModule = import('./pages/ForgotPassword/ForgotPassword');
+const ForgotPassword = lazy(() => ForgotPasswordModule.then(m => ({ default: m.default })));
+const ResetPassword = lazy(() => ForgotPasswordModule.then(m => ({ default: m.ResetPassword })));
+
+const NotFoundModule = import('./pages/NotFound/NotFound');
+const NotFound = lazy(() => NotFoundModule.then(m => ({ default: m.default })));
+
 function App() {
   const [showSplash, setShowSplash] = useState(() => {
     // Show splash only once per session
@@ -60,9 +68,14 @@ function App() {
                 <Route path="/person/:id" element={<PersonDetails />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password/:token" element={<ResetPassword />} />
                 <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
                 <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
                 <Route path="/admin" element={<ProtectedRoute adminOnly><Admin /></ProtectedRoute>} />
+                
+                {/* 404 Catch-all Route */}
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
           </main>
