@@ -10,7 +10,7 @@
 [![TMDB](https://img.shields.io/badge/TMDB-API-01B4E4?logo=themoviedatabase&logoColor=white)](https://themoviedb.org)
 [![Groq](https://img.shields.io/badge/Groq-Llama_3.3-F55036?logo=meta&logoColor=white)](https://groq.com)
 
-[Live Demo](#) · [Features](#-top-features) · [Tech Stack](#-tech-stack) · [Setup](#-getting-started) · [Architecture](#-architecture)
+[Live Demo](https://moovz.onrender.com/) · [Features](#-top-features) · [Tech Stack](#-tech-stack) · [Setup](#-getting-started) · [Architecture](#-architecture)
 
 </div>
 
