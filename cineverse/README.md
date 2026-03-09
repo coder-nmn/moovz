@@ -10,7 +10,7 @@
 [![TMDB](https://img.shields.io/badge/TMDB-API-01B4E4?logo=themoviedatabase&logoColor=white)](https://themoviedb.org)
 [![Groq](https://img.shields.io/badge/Groq-Llama_3.3-F55036?logo=meta&logoColor=white)](https://groq.com)
 
-[Live Demo](#) · [Features](#-top-features) · [Tech Stack](#-tech-stack) · [Setup](#-getting-started) · [Architecture](#-architecture)
+[Live Demo]() · [Features](#-top-features) · [Tech Stack](#-tech-stack) · [Setup](#-getting-started) · [Architecture](#-architecture)
 
 </div>
 
@@ -19,38 +19,45 @@
 ## 🔥 Top Features
 
 ### 🤖 AI-Powered Chatbot
+
 An intelligent floating chatbot powered by **Llama 3.3 70B** (via Groq). Ask for movie recommendations, actor info, or trending content — every movie/show/actor name in the response is a **clickable link** that navigates directly to its detail page inside the app.
 
 ### 🎨 Cinematic Dual Theme
+
 Fully responsive **dark and light mode** with a Netflix-style always-dark hero section. Glassmorphism effects, gradient overlays, and smooth micro-animations throughout.
 
 ### 🔐 JWT Authentication
+
 Secure user registration and login with **JWT tokens**, protected routes, role-based access (user/admin), and persistent sessions.
 
 ### 🎬 Rich Movie & TV Details
+
 Detailed pages with backdrop heroes, trailers (YouTube), cast with clickable profiles, genre tags, ratings, runtime, budget/revenue, and **watch provider links** (Netflix, Prime Video, Hotstar, etc.) via JustWatch data.
 
 ### ⭐ Favorites & Watch History
+
 Logged-in users can save favorites and automatically track viewing history, synced with MongoDB.
 
 ### 🔍 Multi-Search
+
 Search across movies, TV shows, and people simultaneously with real-time results and clean UI cards.
 
 ### 📱 Fully Responsive
+
 Mobile-first design that works seamlessly across desktop, tablet, and mobile screen sizes.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer | Technologies |
-|-------|-------------|
-| **Frontend** | React 19, Redux Toolkit, React Router v7, Vite, CSS Variables |
-| **Backend** | Node.js, Express.js, JWT, bcryptjs |
-| **Database** | MongoDB Atlas, Mongoose ODM |
-| **AI** | Groq API (Llama 3.3 70B), TMDB multi-search for link resolution |
-| **APIs** | TMDB API (movies, TV, people, images, videos, watch providers) |
-| **Design** | Custom CSS with glassmorphism, dark/light theming, micro-animations |
+| Layer        | Technologies                                                        |
+| ------------ | ------------------------------------------------------------------- |
+| **Frontend** | React 19, Redux Toolkit, React Router v7, Vite, CSS Variables       |
+| **Backend**  | Node.js, Express.js, JWT, bcryptjs                                  |
+| **Database** | MongoDB Atlas, Mongoose ODM                                         |
+| **AI**       | Groq API (Llama 3.3 70B), TMDB multi-search for link resolution     |
+| **APIs**     | TMDB API (movies, TV, people, images, videos, watch providers)      |
+| **Design**   | Custom CSS with glassmorphism, dark/light theming, micro-animations |
 
 ---
 
@@ -105,24 +112,28 @@ moovz/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - **Node.js** v18+
 - **MongoDB** (Atlas or local)
 - **TMDB API Key** — free at [themoviedb.org](https://www.themoviedb.org/settings/api)
-- **Groq API Key** *(optional, for AI chatbot)* — free at [console.groq.com](https://console.groq.com)
+- **Groq API Key** _(optional, for AI chatbot)_ — free at [console.groq.com](https://console.groq.com)
 
 ### 1. Clone the repo
+
 ```bash
 git clone https://github.com/your-username/moovz.git
 cd moovz
 ```
 
 ### 2. Setup Backend
+
 ```bash
 cd server
 npm install
 ```
 
 Create `server/.env`:
+
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
@@ -132,17 +143,20 @@ GROQ_API_KEY=your_groq_api_key    # Optional — chatbot works without it
 ```
 
 Start the server:
+
 ```bash
 npm run dev
 ```
 
 ### 3. Setup Frontend
+
 ```bash
 cd client
 npm install
 ```
 
 Create `client/.env`:
+
 ```env
 VITE_TMDB_API_KEY=your_tmdb_api_key
 VITE_TMDB_BASE_URL=https://api.themoviedb.org/3
@@ -151,11 +165,13 @@ VITE_BACKEND_URL=http://localhost:5000/api
 ```
 
 Start the dev server:
+
 ```bash
 npm run dev
 ```
 
 ### 4. Open the app
+
 Visit **http://localhost:5173** in your browser 🎬
 
 ---
@@ -200,13 +216,13 @@ graph TB
 
 ## 📸 Screenshots
 
-| Dark Mode Home | Light Mode Home |
-|:-:|:-:|
-| *Cinematic hero with dark gradient* | *Clean light theme with card borders* |
+|           Dark Mode Home            |            Light Mode Home            |
+| :---------------------------------: | :-----------------------------------: |
+| _Cinematic hero with dark gradient_ | _Clean light theme with card borders_ |
 
-| Movie Details | AI Chatbot |
-|:-:|:-:|
-| *Always-dark hero + watch providers* | *Clickable movie links in responses* |
+|            Movie Details             |              AI Chatbot              |
+| :----------------------------------: | :----------------------------------: |
+| _Always-dark hero + watch providers_ | _Clickable movie links in responses_ |
 
 ---
 
@@ -223,35 +239,37 @@ graph TB
 ## 📜 Available Scripts
 
 ### Client (Frontend)
-| Script | Command | Description |
-|--------|---------|-------------|
-| **Dev** | `npm run dev` | Start Vite dev server with HMR |
-| **Build** | `npm run build` | Production build to `dist/` |
+
+| Script      | Command           | Description                      |
+| ----------- | ----------------- | -------------------------------- |
+| **Dev**     | `npm run dev`     | Start Vite dev server with HMR   |
+| **Build**   | `npm run build`   | Production build to `dist/`      |
 | **Preview** | `npm run preview` | Preview production build locally |
-| **Lint** | `npm run lint` | Run ESLint on source files |
+| **Lint**    | `npm run lint`    | Run ESLint on source files       |
 
 ### Server (Backend)
-| Script | Command | Description |
-|--------|---------|-------------|
-| **Dev** | `npm run dev` | Start with nodemon (auto-restart) |
-| **Start** | `npm start` | Start production server |
+
+| Script    | Command       | Description                       |
+| --------- | ------------- | --------------------------------- |
+| **Dev**   | `npm run dev` | Start with nodemon (auto-restart) |
+| **Start** | `npm start`   | Start production server           |
 
 ---
 
 ## 🔑 API Endpoints
 
-| Method | Endpoint | Auth | Description |
-|--------|----------|------|-------------|
-| `POST` | `/api/auth/register` | ❌ | Create new user account |
-| `POST` | `/api/auth/login` | ❌ | Login & receive JWT token |
-| `GET` | `/api/auth/profile` | ✅ | Get current user profile |
-| `GET` | `/api/favorites` | ✅ | Get user's favorites |
-| `POST` | `/api/favorites` | ✅ | Add to favorites |
-| `DELETE` | `/api/favorites/:id` | ✅ | Remove from favorites |
-| `GET` | `/api/history` | ✅ | Get watch history |
-| `POST` | `/api/history` | ✅ | Add to watch history |
-| `POST` | `/api/chat` | ❌ | Send message to AI chatbot |
-| `GET` | `/api/health` | ❌ | Server health check |
+| Method   | Endpoint             | Auth | Description                |
+| -------- | -------------------- | ---- | -------------------------- |
+| `POST`   | `/api/auth/register` | ❌   | Create new user account    |
+| `POST`   | `/api/auth/login`    | ❌   | Login & receive JWT token  |
+| `GET`    | `/api/auth/profile`  | ✅   | Get current user profile   |
+| `GET`    | `/api/favorites`     | ✅   | Get user's favorites       |
+| `POST`   | `/api/favorites`     | ✅   | Add to favorites           |
+| `DELETE` | `/api/favorites/:id` | ✅   | Remove from favorites      |
+| `GET`    | `/api/history`       | ✅   | Get watch history          |
+| `POST`   | `/api/history`       | ✅   | Add to watch history       |
+| `POST`   | `/api/chat`          | ❌   | Send message to AI chatbot |
+| `GET`    | `/api/health`        | ❌   | Server health check        |
 
 ---
 
