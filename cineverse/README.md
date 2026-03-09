@@ -216,13 +216,13 @@ graph TB
 
 ## 📸 Screenshots
 
-|           Dark Mode Home            |            Light Mode Home            |
-| :---------------------------------: | :-----------------------------------: |
-| _Cinematic hero with dark gradient_ | _Clean light theme with card borders_ |
+| Dark Mode Home | Light Mode Home |
+|:-:|:-:|
+| ![Dark Home](screenshots/dark.png) | ![Light Home](screenshots/light.png) |
 
-|            Movie Details             |              AI Chatbot              |
-| :----------------------------------: | :----------------------------------: |
-| _Always-dark hero + watch providers_ | _Clickable movie links in responses_ |
+| Movie Details | AI Chatbot |
+|:-:|:-:|
+| ![Movie Details](screenshots/details.png) | ![Chatbot](screenshots/chatbot.png) ||
 
 ---
 
